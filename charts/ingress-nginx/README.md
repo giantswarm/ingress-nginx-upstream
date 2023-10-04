@@ -242,6 +242,11 @@ As of version `1.26.0` of this chart, by simply not providing any clusterIP valu
 | controller.admissionWebhooks.certificate | string | `"/usr/local/certificates/cert"` |  |
 | controller.admissionWebhooks.createSecretJob.resources | object | `{}` |  |
 | controller.admissionWebhooks.createSecretJob.securityContext.allowPrivilegeEscalation | bool | `false` |  |
+| controller.admissionWebhooks.createSecretJob.securityContext.capabilities.drop[0] | string | `"ALL"` |  |
+| controller.admissionWebhooks.createSecretJob.securityContext.readOnlyRootFilesystem | bool | `true` |  |
+| controller.admissionWebhooks.createSecretJob.securityContext.runAsNonRoot | bool | `true` |  |
+| controller.admissionWebhooks.createSecretJob.securityContext.runAsUser | int | `65532` |  |
+| controller.admissionWebhooks.createSecretJob.securityContext.seccompProfile.type | string | `"RuntimeDefault"` |  |
 | controller.admissionWebhooks.enabled | bool | `true` |  |
 | controller.admissionWebhooks.existingPsp | string | `""` | Use an existing PSP instead of creating one |
 | controller.admissionWebhooks.extraEnvs | list | `[]` | Additional environment variables to set |
@@ -260,12 +265,15 @@ As of version `1.26.0` of this chart, by simply not providing any clusterIP valu
 | controller.admissionWebhooks.patch.nodeSelector."kubernetes.io/os" | string | `"linux"` |  |
 | controller.admissionWebhooks.patch.podAnnotations | object | `{}` |  |
 | controller.admissionWebhooks.patch.priorityClassName | string | `""` | Provide a priority class name to the webhook patching job # |
-| controller.admissionWebhooks.patch.securityContext.fsGroup | int | `2000` |  |
-| controller.admissionWebhooks.patch.securityContext.runAsNonRoot | bool | `true` |  |
-| controller.admissionWebhooks.patch.securityContext.runAsUser | int | `2000` |  |
+| controller.admissionWebhooks.patch.securityContext | object | `{}` |  |
 | controller.admissionWebhooks.patch.tolerations | list | `[]` |  |
 | controller.admissionWebhooks.patchWebhookJob.resources | object | `{}` |  |
 | controller.admissionWebhooks.patchWebhookJob.securityContext.allowPrivilegeEscalation | bool | `false` |  |
+| controller.admissionWebhooks.patchWebhookJob.securityContext.capabilities.drop[0] | string | `"ALL"` |  |
+| controller.admissionWebhooks.patchWebhookJob.securityContext.readOnlyRootFilesystem | bool | `true` |  |
+| controller.admissionWebhooks.patchWebhookJob.securityContext.runAsNonRoot | bool | `true` |  |
+| controller.admissionWebhooks.patchWebhookJob.securityContext.runAsUser | int | `65532` |  |
+| controller.admissionWebhooks.patchWebhookJob.securityContext.seccompProfile.type | string | `"RuntimeDefault"` |  |
 | controller.admissionWebhooks.port | int | `8443` |  |
 | controller.admissionWebhooks.service.annotations | object | `{}` |  |
 | controller.admissionWebhooks.service.externalIPs | list | `[]` |  |

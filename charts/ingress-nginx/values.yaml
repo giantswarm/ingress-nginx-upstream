@@ -736,7 +736,15 @@ controller:
       type: ClusterIP
     createSecretJob:
       securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
         allowPrivilegeEscalation: false
+        seccompProfile:
+          type: RuntimeDefault
+        capabilities:
+          drop:
+          - ALL
+        readOnlyRootFilesystem: true
       resources: {}
       # limits:
       #   cpu: 10m
@@ -746,7 +754,15 @@ controller:
       #   memory: 20Mi
     patchWebhookJob:
       securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
         allowPrivilegeEscalation: false
+        seccompProfile:
+          type: RuntimeDefault
+        capabilities:
+          drop:
+          - ALL
+        readOnlyRootFilesystem: true
       resources: {}
     patch:
       enabled: true
@@ -768,10 +784,7 @@ controller:
       tolerations: []
       # -- Labels to be added to patch job resources
       labels: {}
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 2000
-        fsGroup: 2000
+      securityContext: {}
     # Use certmanager to generate webhook certs
     certManager:
       enabled: false
