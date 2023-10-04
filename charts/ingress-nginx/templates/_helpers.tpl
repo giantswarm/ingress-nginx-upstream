@@ -30,11 +30,10 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- end -}}
 {{- end -}}
 
-
 {{/*
-Container SecurityContext.
+Controller container security context.
 */}}
-{{- define "controller.containerSecurityContext" -}}
+{{- define "ingress-nginx.controller.containerSecurityContext" -}}
 {{- if .Values.controller.containerSecurityContext -}}
 {{- toYaml .Values.controller.containerSecurityContext -}}
 {{- else -}}
@@ -48,7 +47,7 @@ capabilities:
   {{- end }}
 runAsUser: {{ .Values.controller.image.runAsUser }}
 allowPrivilegeEscalation: {{ .Values.controller.image.allowPrivilegeEscalation }}
-{{- end }}
+{{- end -}}
 {{- end -}}
 
 {{/*
