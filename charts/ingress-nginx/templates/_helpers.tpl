@@ -37,6 +37,12 @@ Controller container security context.
 {{- if .Values.controller.containerSecurityContext -}}
 {{- toYaml .Values.controller.containerSecurityContext -}}
 {{- else -}}
+runAsNonRoot: {{ .Values.controller.image.runAsNonRoot }}
+runAsUser: {{ .Values.controller.image.runAsUser }}
+allowPrivilegeEscalation: {{ .Values.controller.image.allowPrivilegeEscalation }}
+{{- if .Values.controller.image.seccompProfile }}
+seccompProfile: {{ toYaml .Values.controller.image.seccompProfile | nindent 2 }}
+{{- end }}
 capabilities:
   drop:
   - ALL
@@ -45,8 +51,7 @@ capabilities:
   {{- if .Values.controller.image.chroot }}
   - SYS_CHROOT
   {{- end }}
-runAsUser: {{ .Values.controller.image.runAsUser }}
-allowPrivilegeEscalation: {{ .Values.controller.image.allowPrivilegeEscalation }}
+readOnlyRootFilesystem: {{ .Values.controller.image.readOnlyRootFilesystem }}
 {{- end -}}
 {{- end -}}
 
