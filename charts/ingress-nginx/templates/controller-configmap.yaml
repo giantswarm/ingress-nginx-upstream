@@ -28,3 +28,6 @@ data:
 {{- range $key, $value := .Values.controller.config }}
   {{- $key | nindent 2 }}: {{ tpl (toString $value) $ | quote }}
 {{- end }}
+{{- if and (or (eq .Values.provider "aws") (eq .Values.provider "capa")) (not (index .Values.controller.config "use-proxy-protocol")) }}
+  use-proxy-protocol: "true"
+{{- end }}
