@@ -902,7 +902,15 @@ controller:
       scrapeInterval: 30s
       # honorLabels: true
       targetLabels: []
-      relabelings: []
+      relabelings:
+      - sourceLabels:
+        - __meta_kubernetes_pod_label_app
+        action: replace
+        targetLabel: app
+      - sourceLabels:
+        - __meta_kubernetes_pod_node_name
+        action: replace
+        targetLabel: node
       metricRelabelings:
       - sourceLabels:
         - __name__
