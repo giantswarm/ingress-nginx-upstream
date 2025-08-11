@@ -29,7 +29,7 @@ require (
 	github.com/vmware-labs/yaml-jsonpath v0.3.2
 	github.com/yudai/gojsondiff v1.0.0
 	github.com/zakjan/cert-chain-resolver v0.0.0-20221221105603-fcedb00c5b30
-	golang.org/x/crypto v0.40.0
+	golang.org/x/crypto v0.41.0
 	google.golang.org/grpc v1.74.2
 	gopkg.in/go-playground/pool.v3 v3.1.1
 	gopkg.in/mcuadros/go-syslog.v2 v2.3.0
@@ -126,9 +126,9 @@ require (
 	golang.org/x/net v0.42.0 // indirect
 	golang.org/x/oauth2 v0.30.0
 	golang.org/x/sync v0.16.0 // indirect
-	golang.org/x/sys v0.34.0 // indirect
-	golang.org/x/term v0.33.0 // indirect
-	golang.org/x/text v0.27.0 // indirect
+	golang.org/x/sys v0.35.0 // indirect
+	golang.org/x/term v0.34.0 // indirect
+	golang.org/x/text v0.28.0 // indirect
 	golang.org/x/time v0.12.0 // indirect
 	golang.org/x/tools v0.35.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20250728155136-f173205681a0 // indirect
